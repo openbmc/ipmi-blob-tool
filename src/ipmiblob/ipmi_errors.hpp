@@ -11,14 +11,16 @@ namespace ipmiblob
 class IpmiException : public std::exception
 {
   public:
-    const std::map<int, std::string> commonFailures = {
-        {0xc0, "busy"},
-        {0xc1, "invalid"},
-        {0xc3, "timeout"},
-    };
+    explicit IpmiException(const std::string& message) : _message(message){};
 
-    explicit IpmiException(int cc)
+    static std::string messageFromIpmi(int cc)
     {
+        const std::map<int, std::string> commonFailures = {
+            {0xc0, "busy"},
+            {0xc1, "invalid"},
+            {0xc3, "timeout"},
+        };
+
         std::ostringstream smessage;
 
         auto search = commonFailures.find(cc);
@@ -31,17 +33,20 @@ class IpmiException : public std::exception
             smessage << "Received IPMI_CC: " << cc;
         }
 
-        message = smessage.str();
+        return smessage.str();
     }
-    explicit IpmiException(const std::string& message) : message(message){};
+
+    explicit IpmiException(int cc) : IpmiException(messageFromIpmi(cc))
+    {
+    }
 
     virtual const char* what() const noexcept override
     {
-        return message.c_str();
+        return _message.c_str();
     }
 
   private:
-    std::string message;
+    std::string _message;
 };
 
 } // namespace ipmiblob
