@@ -10,7 +10,8 @@ namespace ipmiblob
 class IpmiException : public std::exception
 {
   public:
-    explicit IpmiException(const std::string& message) : _message(message){};
+    IpmiException(const std::string& message, int code) :
+        _message(message), _code(code){};
 
     static std::string messageFromIpmi(int cc)
     {
@@ -31,7 +32,7 @@ class IpmiException : public std::exception
         }
     }
 
-    explicit IpmiException(int cc) : IpmiException(messageFromIpmi(cc))
+    explicit IpmiException(int cc) : IpmiException(messageFromIpmi(cc), cc)
     {
     }
 
@@ -40,8 +41,14 @@ class IpmiException : public std::exception
         return _message.c_str();
     }
 
+    const int code() const noexcept
+    {
+        return _ccode;
+    }
+
   private:
     std::string _message;
+    int _ccode;
 };
 
 } // namespace ipmiblob
