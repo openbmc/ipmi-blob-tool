@@ -252,6 +252,12 @@ StatResponse BlobHandler::statGeneric(BlobOEMCommands command,
         throw;
     }
 
+    // Avoid out of bounds memcpy below
+    if (resp.size() <= sizeof(meta.blob_state) + sizeof(meta.size))
+    {
+        throw BlobException("Invalid response length");
+    }
+
     std::memcpy(&meta.blob_state, &resp[0], sizeof(meta.blob_state));
     std::memcpy(&meta.size, &resp[sizeof(meta.blob_state)], sizeof(meta.size));
     int offset = sizeof(meta.blob_state) + sizeof(meta.size);

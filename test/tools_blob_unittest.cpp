@@ -1,4 +1,5 @@
 #include <cstdint>
+#include <ipmiblob/blob_errors.hpp>
 #include <ipmiblob/blob_handler.hpp>
 #include <ipmiblob/test/crc_mock.hpp>
 #include <ipmiblob/test/ipmi_interface_mock.hpp>
@@ -229,7 +230,7 @@ TEST_F(BlobHandlerTest, getStatNoMetadata)
         'c',  'd',
         0x00};
 
-    /* return blob_state: 0xffff, size: 0x00, metadata 0x3445 */
+    /* return blob_state: 0xffff, size: 0x00, metadata 0x0000 */
     std::vector<std::uint8_t> resp = {0xcf, 0xc2, 0x00, 0x00, 0x00, 0xff,
                                       0xff, 0x00, 0x00, 0x00, 0x00, 0x00};
 
@@ -267,7 +268,7 @@ TEST_F(BlobHandlerTest, getSessionStatNoMetadata)
         0x00, 0x00,
         0x01, 0x00};
 
-    /* return blob_state: 0xffff, size: 0x00, metadata 0x3445 */
+    /* return blob_state: 0xffff, size: 0x00, metadata 0x0000 */
     std::vector<std::uint8_t> resp = {0xcf, 0xc2, 0x00, 0x00, 0x00, 0xff,
                                       0xff, 0x00, 0x00, 0x00, 0x00, 0x00};
 
@@ -289,6 +290,62 @@ TEST_F(BlobHandlerTest, getSessionStatNoMetadata)
     EXPECT_EQ(meta.size, 0x00);
     std::vector<std::uint8_t> metadata = {};
     EXPECT_EQ(metadata, meta.metadata);
+}
+
+TEST_F(BlobHandlerTest, getSessionStatEmptyResp)
+{
+    /* The get session stat fails after getting empty response */
+    auto ipmi = CreateIpmiMock();
+    IpmiInterfaceMock* ipmiMock =
+        reinterpret_cast<IpmiInterfaceMock*>(ipmi.get());
+    BlobHandler blob(std::move(ipmi));
+
+    std::vector<std::uint8_t> request = {
+        0xcf, 0xc2,
+        0x00, static_cast<std::uint8_t>(BlobOEMCommands::bmcBlobSessionStat),
+        0x00, 0x00,
+        0x01, 0x00};
+
+    std::vector<std::uint8_t> resp;
+    std::vector<std::uint8_t> reqCrc = {0x01, 0x00};
+
+    EXPECT_CALL(crcMock, generateCrc(ContainerEq(reqCrc)))
+        .WillOnce(Return(0x00));
+
+    EXPECT_CALL(*ipmiMock,
+                sendPacket(ipmiOEMNetFn, ipmiOEMBlobCmd, ContainerEq(request)))
+        .WillOnce(Return(resp));
+
+    EXPECT_THROW(blob.getStat(0x0001), BlobException);
+}
+
+TEST_F(BlobHandlerTest, getSessionStatInvalidHeader)
+{
+    /* The get session stat fails after getting a response shorter than the
+     * expected headersize but with the expected OEN
+     */
+    auto ipmi = CreateIpmiMock();
+    IpmiInterfaceMock* ipmiMock =
+        reinterpret_cast<IpmiInterfaceMock*>(ipmi.get());
+    BlobHandler blob(std::move(ipmi));
+
+    std::vector<std::uint8_t> request = {
+        0xcf, 0xc2,
+        0x00, static_cast<std::uint8_t>(BlobOEMCommands::bmcBlobSessionStat),
+        0x00, 0x00,
+        0x01, 0x00};
+
+    std::vector<std::uint8_t> resp = {0xcf, 0xc2, 0x00, 0x00};
+    std::vector<std::uint8_t> reqCrc = {0x01, 0x00};
+
+    EXPECT_CALL(crcMock, generateCrc(ContainerEq(reqCrc)))
+        .WillOnce(Return(0x00));
+
+    EXPECT_CALL(*ipmiMock,
+                sendPacket(ipmiOEMNetFn, ipmiOEMBlobCmd, ContainerEq(request)))
+        .WillOnce(Return(resp));
+
+    EXPECT_THROW(blob.getStat(0x0001), BlobException);
 }
 
 TEST_F(BlobHandlerTest, openBlobSucceeds)
