@@ -83,13 +83,17 @@ std::vector<std::uint8_t>
     std::array<std::uint8_t, ipmiResponseBufferLen> responseBuffer;
 
     /* Build address. */
-    struct ipmi_system_interface_addr systemAddress;
+    struct ipmi_system_interface_addr systemAddress
+    {
+    };
     systemAddress.addr_type = IPMI_SYSTEM_INTERFACE_ADDR_TYPE;
     systemAddress.channel = IPMI_BMC_CHANNEL;
     systemAddress.lun = ipmiOEMLun;
 
     /* Build request. */
-    struct ipmi_req request;
+    struct ipmi_req request
+    {
+    };
     std::memset(&request, 0, sizeof(request));
     request.addr = reinterpret_cast<unsigned char*>(&systemAddress);
     request.addr_len = sizeof(systemAddress);
@@ -99,7 +103,9 @@ std::vector<std::uint8_t>
     request.msg.netfn = netfn;
     request.msg.cmd = cmd;
 
-    struct ipmi_recv reply;
+    struct ipmi_recv reply
+    {
+    };
     reply.addr = reinterpret_cast<unsigned char*>(&systemAddress);
     reply.addr_len = sizeof(systemAddress);
     reply.msg.data = reinterpret_cast<unsigned char*>(responseBuffer.data());
@@ -113,7 +119,9 @@ std::vector<std::uint8_t>
     }
 
     /* Could use sdeventplus, but for only one type of event is it worth it? */
-    struct pollfd pfd;
+    struct pollfd pfd
+    {
+    };
     pfd.fd = fd;
     pfd.events = POLLIN;
 
