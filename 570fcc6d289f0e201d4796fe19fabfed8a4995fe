@@ -1,0 +1,10 @@
+Ok-To-Test+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+1: Brandon Kim <brandonkim@google.com>
+Code-Review+1: Benjamin Fair <benjaminfair@google.com>
+Code-Review+2: Patrick Venture <venture@google.com>
+Submitted-by: Patrick Venture <venture@google.com>
+Submitted-at: Mon, 29 Jun 2020 16:45:49 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/c/openbmc/ipmi-blob-tool/+/34153
+Project: openbmc/ipmi-blob-tool
+Branch: refs/heads/master
