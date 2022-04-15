@@ -35,7 +35,7 @@ LT_INIT # Removes 'unrecognized options: --with-libtool-sysroot'
 PKG_INSTALLDIR
 
 # Checks for typedefs, structures, and compiler characteristics.
-AX_CXX_COMPILE_STDCXX([17], [noext], [mandatory])
+AX_CXX_COMPILE_STDCXX([20], [noext], [mandatory])
 AX_APPEND_COMPILE_FLAGS([-Wall -Wextra -Wpedantic], [CFLAGS])
 AX_APPEND_COMPILE_FLAGS([-Wall -Wextra -Wpedantic], [CXXFLAGS])
 
