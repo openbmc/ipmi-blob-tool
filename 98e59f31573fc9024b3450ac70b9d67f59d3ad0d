@@ -1,0 +1,7 @@
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+2: Patrick Venture <venture@google.com>
+Submitted-by: Patrick Williams <patrick@stwcx.xyz>
+Submitted-at: Mon, 18 Apr 2022 03:25:56 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/c/openbmc/ipmi-blob-tool/+/52994
+Project: openbmc/ipmi-blob-tool
+Branch: refs/heads/master
