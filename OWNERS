@@ -32,13 +32,13 @@
 # data within them will be kept sorted.
 
 owners:
-- venture@google.com
+- brandonkim@google.com
 
 reviewers:
 
 matches:
 
 openbmc:
-- name: Patrick Venture
-  email: venture@google.com
-  discord: Venture
+- name: Brandon Kim
+  email: brandonkim@google.com
+  discord: brandonk
