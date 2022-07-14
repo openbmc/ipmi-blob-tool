@@ -16,6 +16,24 @@
       "message": "You can remove everything but the `build*/` rule",
       "revId": "fdf2bd1d543c72039077ae88bf1df108ed7222e9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e820837_c7e120f3",
+        "filename": ".gitignore",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2022-07-14T20:42:44Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1d58d962_a5526529",
+      "revId": "fdf2bd1d543c72039077ae88bf1df108ed7222e9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
