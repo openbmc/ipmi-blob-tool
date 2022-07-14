@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df09674c_0b191d01",
+        "filename": "src/meson.build",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2022-07-14T00:55:08Z",
+      "side": 1,
+      "message": "It seems things are failing because the install_headers(subdir) is not taking into effect properly for some reason after the subdirectory was removed for some reason:\n\n```\nFAILED: test/crc.p/crc_unittest.cpp.o \nc++ -Itest/crc.p -Isrc -I../src -I/usr/local/include -fdiagnostics-color\u003dnever -D_FILE_OFFSET_BITS\u003d64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -Werror -std\u003dc++20 -g -DGTEST_HAS_PTHREAD\u003d1 -MD -MQ test/crc.p/crc_unittest.cpp.o -MF test/crc.p/crc_unittest.cpp.o.d -o test/crc.p/crc_unittest.cpp.o -c ../test/crc_unittest.cpp\n../test/crc_unittest.cpp:1:10: fatal error: ipmiblob/crc.hpp: No such file or directory\n    1 | #include \u003cipmiblob/crc.hpp\u003e\n      |          ^~~~~~~~~~~~~~~~~~\ncompilation terminated.\n\n[2/14] Compiling C++ object test/tools_blob.p/tools_blob_unittest.cpp.o\nFAILED: test/tools_blob.p/tools_blob_unittest.cpp.o \nc++ -Itest/tools_blob.p -Isrc -I../src -I/usr/local/include -fdiagnostics-color\u003dnever -D_FILE_OFFSET_BITS\u003d64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -Werror -std\u003dc++20 -g -DGTEST_HAS_PTHREAD\u003d1 -MD -MQ test/tools_blob.p/tools_blob_unittest.cpp.o -MF test/tools_blob.p/tools_blob_unittest.cpp.o.d -o test/tools_blob.p/tools_blob_unittest.cpp.o -c ../test/tools_blob_unittest.cpp\n../test/tools_blob_unittest.cpp:1:10: fatal error: ipmiblob/blob_errors.hpp: No such file or directory\n    1 | #include \u003cipmiblob/blob_errors.hpp\u003e\n      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~\ncompilation terminated.\n\n[3/14] Compiling C++ object test/tools_ipmi_error.p/tools_ipmi_error_unittest.cpp.o\nFAILED: test/tools_ipmi_error.p/tools_ipmi_error_unittest.cpp.o \nc++ -Itest/tools_ipmi_error.p -Isrc -I../src -I/usr/local/include -fdiagnostics-color\u003dnever -D_FILE_OFFSET_BITS\u003d64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -Werror -std\u003dc++20 -g -DGTEST_HAS_PTHREAD\u003d1 -MD -MQ test/tools_ipmi_error.p/tools_ipmi_error_unittest.cpp.o -MF test/tools_ipmi_error.p/tools_ipmi_error_unittest.cpp.o.d -o test/tools_ipmi_error.p/tools_ipmi_error_unittest.cpp.o -c ../test/tools_ipmi_error_unittest.cpp\n../test/tools_ipmi_error_unittest.cpp:1:10: fatal error: ipmiblob/ipmi_errors.hpp: No such file or directory\n    1 | #include \u003cipmiblob/ipmi_errors.hpp\u003e\n      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~\ncompilation terminated.\n\n[4/14] Compiling C++ object test/tools_ipmi.p/tools_ipmi_unittest.cpp.o\nFAILED: test/tools_ipmi.p/tools_ipmi_unittest.cpp.o \nc++ -Itest/tools_ipmi.p -Isrc -I../src -I/usr/local/include -fdiagnostics-color\u003dnever -D_FILE_OFFSET_BITS\u003d64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -Werror -std\u003dc++20 -g -DGTEST_HAS_PTHREAD\u003d1 -MD -MQ test/tools_ipmi.p/tools_ipmi_unittest.cpp.o -MF test/tools_ipmi.p/tools_ipmi_unittest.cpp.o.d -o test/tools_ipmi.p/tools_ipmi_unittest.cpp.o -c ../test/tools_ipmi_unittest.cpp\nIn file included from ../test/tools_ipmi_unittest.cpp:1:\n../test/internal_sys_mock.hpp:5:10: fatal error: ipmiblob/internal/sys_interface.hpp: No such file or directory\n    5 | #include \u003cipmiblob/internal/sys_interface.hpp\u003e\n      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\ncompilation terminated.\n```\n\nShould I be updating the tests to remove the ipmiblob/ prefix?\n\nI thought \u003c\u003e meant it would be pulling it from the installed header",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 21
+      },
+      "revId": "27560a0356f9638fdc2dc937b6a2d36ff596605e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
