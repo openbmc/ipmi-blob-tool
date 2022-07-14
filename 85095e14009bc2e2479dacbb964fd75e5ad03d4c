@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f1c6221_fe29313a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000188
+      },
+      "writtenOn": "2022-07-14T19:58:50Z",
+      "side": 1,
+      "message": "Update the gitignore to remove the autotools files",
+      "revId": "85095e14009bc2e2479dacbb964fd75e5ad03d4c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
