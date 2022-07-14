@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78a887b4_88613f88",
+        "filename": "meson.build",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2022-07-14T18:13:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0cc6223d_86c72afd",
+      "range": {
+        "startLine": 6,
+        "startChar": 18,
+        "endLine": 6,
+        "endChar": 26
+      },
+      "revId": "fdce62d728245e5298d170e2f9d0d4a768625a3d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d6e6cbbf_40be0869",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-07-14T01:08:28Z",
       "side": 1,
       "message": "probably don\u0027t need to install this? Or maybe test only?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 0
+      },
+      "revId": "fdce62d728245e5298d170e2f9d0d4a768625a3d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ae2de3b_6b93c7fc",
+        "filename": "src/meson.build",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2022-07-14T18:13:43Z",
+      "side": 1,
+      "message": "This is equivalent to what was previously there - as the interface mocks could be used by other repos that use pkgconfig to bring in these headers. https://github.com/openbmc/ipmi-blob-tool/blob/master/src/Makefile.am#L24-L25",
+      "parentUuid": "d6e6cbbf_40be0869",
       "range": {
         "startLine": 17,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "01b2e10b_667fa9a7",
+        "filename": "test/meson.build",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2022-07-14T18:13:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff5e4dd8_76090737",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 4
+      },
+      "revId": "fdce62d728245e5298d170e2f9d0d4a768625a3d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7734810b_02e72693",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-07-14T01:08:28Z",
       "side": 1,
       "message": "newline",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 10
+      },
+      "revId": "fdce62d728245e5298d170e2f9d0d4a768625a3d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b02c6337_e3d621e5",
+        "filename": "test/meson.build",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2022-07-14T18:13:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7734810b_02e72693",
       "range": {
         "startLine": 29,
         "startChar": 0,
