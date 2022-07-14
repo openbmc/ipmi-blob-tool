@@ -51,3 +51,7 @@ test-suite.log
 ipmiblob.pc
 
 # Output binaries
+### Meson ###
+# build directory
+build*/*
+
