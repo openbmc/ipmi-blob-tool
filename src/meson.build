@@ -1,31 +1,31 @@
 ipmiblob_incs = include_directories('.')
 
 install_headers(
-  'ipmiblob/crc.hpp',
-  'ipmiblob/blob_errors.hpp',
-  'ipmiblob/blob_interface.hpp',
-  'ipmiblob/blob_handler.hpp',
-  'ipmiblob/ipmi_interface.hpp',
-  'ipmiblob/ipmi_handler.hpp',
+  'crc.hpp',
+  'blob_errors.hpp',
+  'blob_interface.hpp',
+  'blob_handler.hpp',
+  'ipmi_interface.hpp',
+  'ipmi_handler.hpp',
   subdir: 'ipmiblob')
 
 install_headers(
-  'ipmiblob/internal/sys.hpp',
-  'ipmiblob/internal/sys_interface.hpp',
+  'internal/sys.hpp',
+  'internal/sys_interface.hpp',
  subdir: 'ipmiblob/internal')
 
 install_headers(
-  'ipmiblob/test/blob_interface_mock.hpp',
-  'ipmiblob/test/crc_mock.hpp',
-  'ipmiblob/test/ipmi_interface_mock.hpp',
+  'test/blob_interface_mock.hpp',
+  'test/crc_mock.hpp',
+  'test/ipmi_interface_mock.hpp',
  subdir: 'ipmiblob/test')
 
 ipmiblob_lib = library(
   'ipmiblob',
-  'ipmiblob/blob_handler.cpp',
-  'ipmiblob/crc.cpp',
-  'ipmiblob/ipmi_handler.cpp',
-  'ipmiblob/internal/sys.cpp',
+  'blob_handler.cpp',
+  'crc.cpp',
+  'ipmi_handler.cpp',
+  'internal/sys.cpp',
   include_directories : ipmiblob_incs,
   implicit_include_directories: false,
   version: meson.project_version(),
