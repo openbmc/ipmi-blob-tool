@@ -16,6 +16,24 @@
       "message": "I don\u0027t really like the appearance this commit gives, even if I don\u0027t have a lot of opinions on the details of the transition.  This isn\u0027t listed as a Google-only repo, but the transition like this gives the impression that the repository is \"owned\" by Google and Google found someone within the company to hand off the baton to.\n\nI know this repo isn\u0027t really under heavy development anymore and it looks like Brandon has been doing a good chunk of what development there has been lately, so it probably is fine to do this transition.  I think it could be handled with better words and/or 2 commits (one to add Brandon because of his work lately and one to remove Patrick who is resigning as maintainer).",
       "revId": "3b49d16f7f30012fd5cfcff6fca9531531b5073b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1e13771_07b22f75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2022-07-18T17:33:21Z",
+      "side": 1,
+      "message": "Hi Patrick, yes that makes sense - as you mentioned the context was based on an offline discussion we had which I didn\u0027t write down here.\n\nAs Patrick Venture is no longer actively working on these repos, he is resigning + since this tool is mostly used by phosphor-ipmi-flash which I am the MAINTAINER for, we agreed that I could be a good replacement. I will write this down, and possibly add a few more reviewers / maintainers since it\u0027s preferred to have 2+ reviewer / maintainers.",
+      "parentUuid": "084b3ef8_a8d35c2f",
+      "revId": "3b49d16f7f30012fd5cfcff6fca9531531b5073b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
