@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32284043_5b948cbf",
+        "filename": "src/ipmiblob/blob_handler.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000188
+      },
+      "writtenOn": "2022-07-20T18:39:11Z",
+      "side": 1,
+      "message": "nit: consistency with `string.h` -\u003e `cstring`, `inttypes.h` -\u003e `cinttypes`",
+      "revId": "ed0c88ecee5a5395ffd45c72ba7a7f58b9f2b4e2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
