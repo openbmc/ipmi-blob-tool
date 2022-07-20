@@ -261,8 +261,8 @@ StatResponse BlobHandler::statGeneric(BlobOEMCommands command,
     if (resp.size() < minRespSize)
     {
         std::fprintf(stderr,
-                     "Invalid response length, Got %li which is less than "
-                     "minRespSize %li\n",
+                     "Invalid response length, Got %zu which is less than "
+                     "minRespSize %zu\n",
                      resp.size(), minRespSize);
         throw BlobException("Invalid response length");
     }
@@ -275,8 +275,8 @@ StatResponse BlobHandler::statGeneric(BlobOEMCommands command,
     if (metaDataLength != len)
     {
         std::fprintf(stderr,
-                     "Metadata length did not match actual length, Got %li "
-                     "which does not equal expected length %i\n",
+                     "Metadata length did not match actual length, Got %zu "
+                     "which does not equal expected length %" PRIu8 "\n",
                      metaDataLength, len);
         throw BlobException("Metadata length did not match actual length");
     }
