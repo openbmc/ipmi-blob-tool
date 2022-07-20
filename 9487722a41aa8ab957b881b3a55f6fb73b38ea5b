@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e512c7f_adce8621",
+        "filename": "src/ipmiblob/blob_handler.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000188
+      },
+      "writtenOn": "2022-07-20T18:18:28Z",
+      "side": 1,
+      "message": "`uint8_t len` should be `%\" PRIu8 \"`",
+      "revId": "9487722a41aa8ab957b881b3a55f6fb73b38ea5b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
