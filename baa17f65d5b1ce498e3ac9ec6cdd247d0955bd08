@@ -16,6 +16,24 @@
       "message": "These should all be `%zn` if the type is `size_t`",
       "revId": "baa17f65d5b1ce498e3ac9ec6cdd247d0955bd08",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f932dc79_42b95d78",
+        "filename": "src/ipmiblob/blob_handler.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1000188
+      },
+      "writtenOn": "2022-07-20T17:54:28Z",
+      "side": 1,
+      "message": "Err, `%z`",
+      "parentUuid": "700cc751_69ceac9a",
+      "revId": "baa17f65d5b1ce498e3ac9ec6cdd247d0955bd08",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
