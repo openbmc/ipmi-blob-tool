@@ -16,6 +16,24 @@
       "message": "`uint8_t len` should be `%\" PRIu8 \"`",
       "revId": "9487722a41aa8ab957b881b3a55f6fb73b38ea5b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c60b63e_139a4e4f",
+        "filename": "src/ipmiblob/blob_handler.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2022-07-20T18:21:55Z",
+      "side": 1,
+      "message": "TIL never seen it before, thanks!",
+      "parentUuid": "8e512c7f_adce8621",
+      "revId": "9487722a41aa8ab957b881b3a55f6fb73b38ea5b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
