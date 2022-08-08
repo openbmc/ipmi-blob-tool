@@ -24,6 +24,7 @@
 #include <array>
 #include <cinttypes>
 #include <cstring>
+#include <iterator>
 #include <limits>
 #include <memory>
 
