@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43736fd0_d1530a58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2022-08-08T20:31:10Z",
+      "side": 1,
+      "message": "I should probably add either or both of you to the maintainers / reviewer list (since the owner list is very lonely right now)",
+      "revId": "ee975086169fce82413c27fefb871b779ea6b657",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
