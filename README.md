@@ -10,7 +10,7 @@ Test cases require google{test,mock}, valgrind, and lcov.
 
 For a standard release build, you want something like:
 
-```
+```sh
 ./bootstrap.sh
 ./configure --disable-tests
 make
@@ -19,7 +19,7 @@ make install
 
 For a test / debug build, a typical configuration is
 
-```
+```sh
 ./bootstrap.sh
 ./configure --enable-tests --enable-coverage --enable-valgrind
 make
