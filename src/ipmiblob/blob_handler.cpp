@@ -246,8 +246,8 @@ StatResponse BlobHandler::statGeneric(BlobOEMCommands command,
     static constexpr std::size_t blobStateSize = sizeof(meta.blob_state);
     static constexpr std::size_t metaSize = sizeof(meta.size);
     static constexpr std::size_t metaOffset = blobStateSize + metaSize;
-    static constexpr std::size_t minRespSize =
-        metaOffset + sizeof(std::uint8_t);
+    static constexpr std::size_t minRespSize = metaOffset +
+                                               sizeof(std::uint8_t);
     std::vector<std::uint8_t> resp;
 
     try
