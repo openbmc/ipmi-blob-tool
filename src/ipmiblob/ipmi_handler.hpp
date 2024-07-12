@@ -3,6 +3,7 @@
 #include "internal/sys.hpp"
 #include "ipmi_interface.hpp"
 
+#include <atomic>
 #include <memory>
 #include <vector>
 
@@ -47,7 +48,7 @@ class IpmiHandler : public IpmiInterface
      */
     int fd = -1;
     /* The last IPMI sequence number we used. */
-    int sequence = 0;
+    std::atomic_int sequence = 0;
 };
 
 } // namespace ipmiblob
