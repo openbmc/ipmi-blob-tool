@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1846758_d660c5ba",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-07-12T15:55:53Z",
+      "side": 1,
+      "message": "I think it\u0027s good to add some context - it looks like this was caught by our TSAN",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 47
+      },
+      "revId": "58ff95669fa3a16a2df23b689cb58e508d967bd7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
