@@ -24,6 +24,7 @@
 #include <sys/ioctl.h>
 
 #include <array>
+#include <atomic>
 #include <cstdint>
 #include <cstring>
 #include <memory>
@@ -92,7 +93,7 @@ std::vector<std::uint8_t>
     ipmi_req request{};
     request.addr = reinterpret_cast<unsigned char*>(&systemAddress);
     request.addr_len = sizeof(systemAddress);
-    request.msgid = sequence++;
+    request.msgid = sequence.fetch_add(1, std::memory_order_relaxed);
     request.msg.data = reinterpret_cast<unsigned char*>(data.data());
     request.msg.data_len = data.size();
     request.msg.netfn = netfn;
