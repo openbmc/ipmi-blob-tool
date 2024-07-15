@@ -23,10 +23,16 @@
 #include <linux/ipmi_msgdefs.h>
 #include <sys/ioctl.h>
 
+#include <stdplus/fd/create.hpp>
+#include <stdplus/fd/line.hpp>
+#include <stdplus/fd/managed.hpp>
+#include <stdplus/fd/ops.hpp>
+
 #include <array>
 #include <atomic>
 #include <cstdint>
 #include <cstring>
+#include <format>
 #include <functional>
 #include <memory>
 #include <mutex>
@@ -44,7 +50,7 @@ std::unique_ptr<IpmiInterface> IpmiHandler::CreateIpmiHandler()
 
 void IpmiHandler::open()
 {
-    if (fd >= 0)
+    if (managedFd)
     {
         return;
     }
@@ -55,18 +61,21 @@ void IpmiHandler::open()
 
     for (const auto& format : formats)
     {
-        std::ostringstream path;
-        path << format << device;
-
-        fd = sys->open(path.str().c_str(), O_RDWR);
-        if (fd < 0)
+        try
         {
+            managedFd = stdplus::fd::open(
+                std::format("{}{}", format, device),
+                stdplus::fd::OpenFlags(stdplus::fd::OpenAccess::ReadWrite));
+        }
+        catch (const std::exception& e)
+        {
+            // Failed to open the ipmi interface
             continue;
         }
         break;
     }
 
-    if (fd < 0)
+    if (!managedFd)
     {
         openOnceFlag = std::make_unique<std::once_flag>();
         throw IpmiException("Unable to open any ipmi devices");
@@ -111,7 +120,7 @@ std::vector<std::uint8_t>
     reply.msg.data_len = responseBuffer.size();
 
     /* Try to send request. */
-    int rc = sys->ioctl(fd, IPMICTL_SEND_COMMAND, &request);
+    int rc = sys->ioctl(managedFd.get(), IPMICTL_SEND_COMMAND, &request);
     if (rc < 0)
     {
         throw IpmiException("Unable to send IPMI request.");
@@ -119,7 +128,7 @@ std::vector<std::uint8_t>
 
     /* Could use sdeventplus, but for only one type of event is it worth it? */
     pollfd pfd{};
-    pfd.fd = fd;
+    pfd.fd = managedFd.get();
     pfd.events = POLLIN;
 
     do
@@ -139,7 +148,7 @@ std::vector<std::uint8_t>
         }
 
         /* Yay, happy case! */
-        rc = sys->ioctl(fd, IPMICTL_RECEIVE_MSG_TRUNC, &reply);
+        rc = sys->ioctl(managedFd.get(), IPMICTL_RECEIVE_MSG_TRUNC, &reply);
         if (rc < 0)
         {
             throw IpmiException("Unable to read reply.");

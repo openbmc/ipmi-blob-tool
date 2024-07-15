@@ -29,6 +29,7 @@ ipmiblob_lib = library(
   include_directories : ipmiblob_incs,
   implicit_include_directories: false,
   version: meson.project_version(),
+  dependencies: [dependency('stdplus')],
   install: true,
   install_dir: get_option('libdir')
 )
