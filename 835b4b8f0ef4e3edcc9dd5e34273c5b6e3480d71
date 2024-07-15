@@ -22,6 +22,30 @@
       },
       "revId": "835b4b8f0ef4e3edcc9dd5e34273c5b6e3480d71",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c5b0548_af4abea0",
+        "filename": "src/ipmiblob/ipmi_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000885
+      },
+      "writtenOn": "2024-07-15T22:16:21Z",
+      "side": 1,
+      "message": "I am working on a CL on top to do that.",
+      "parentUuid": "926a5b98_e6295d55",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 77
+      },
+      "revId": "835b4b8f0ef4e3edcc9dd5e34273c5b6e3480d71",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
