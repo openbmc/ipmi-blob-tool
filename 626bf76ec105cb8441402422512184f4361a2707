@@ -1,0 +1,10 @@
+Code-Review+1: anhphan <anhphan@google.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+2: Brandon Kim <brandonkim@google.com>
+Submitted-by: anhphan <anhphan@google.com>
+Submitted-at: Mon, 15 Jul 2024 05:14:31 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/ipmi-blob-tool/+/72672
+Comments-Total: 1
+Comments-Unresolved: 1
+Project: openbmc/ipmi-blob-tool
+Branch: refs/heads/master
