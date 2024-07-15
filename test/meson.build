@@ -26,6 +26,6 @@ foreach t : gtests
   test(t, executable(t.underscorify(), t + '_unittest.cpp',
                      build_by_default: false,
                      implicit_include_directories: false,
-                     dependencies: [ipmiblob, gtest, gmock]))
+                     dependencies: [ipmiblob, gtest, gmock, dependency('stdplus')]))
 endforeach
 
