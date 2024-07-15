@@ -3,6 +3,8 @@
 #include "internal/sys.hpp"
 #include "ipmi_interface.hpp"
 
+#include <stdplus/fd/managed.hpp>
+
 #include <atomic>
 #include <memory>
 #include <mutex>
@@ -44,10 +46,7 @@ class IpmiHandler : public IpmiInterface
 
   private:
     const std::unique_ptr<internal::Sys> sys;
-    /** TODO: Use a smart file descriptor when it's ready.  Until then only
-     * allow moving this object.
-     */
-    int fd = -1;
+    stdplus::ManagedFd managedFd;
     /* The last IPMI sequence number we used. */
     std::atomic_int sequence = 0;
 
