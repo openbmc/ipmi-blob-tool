@@ -24,6 +24,7 @@
 #include <sys/ioctl.h>
 
 #include <array>
+#include <atomic>
 #include <cstdint>
 #include <cstring>
 #include <memory>
