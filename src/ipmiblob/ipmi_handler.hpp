@@ -5,6 +5,7 @@
 
 #include <atomic>
 #include <memory>
+#include <mutex>
 #include <vector>
 
 namespace ipmiblob
@@ -19,7 +20,7 @@ class IpmiHandler : public IpmiInterface
     static std::unique_ptr<IpmiInterface> CreateIpmiHandler();
 
     explicit IpmiHandler(std::unique_ptr<internal::Sys> sys) :
-        sys(std::move(sys)){};
+        sys(std::move(sys)) {};
 
     ~IpmiHandler() = default;
     IpmiHandler(const IpmiHandler&) = delete;
@@ -49,6 +50,9 @@ class IpmiHandler : public IpmiInterface
     int fd = -1;
     /* The last IPMI sequence number we used. */
     std::atomic_int sequence = 0;
+
+    // Protect the open fd between different threads
+    std::unique_ptr<std::once_flag> openOnceFlag;
 };
 
 } // namespace ipmiblob
