@@ -27,7 +27,9 @@
 #include <atomic>
 #include <cstdint>
 #include <cstring>
+#include <functional>
 #include <memory>
+#include <mutex>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -42,6 +44,11 @@ std::unique_ptr<IpmiInterface> IpmiHandler::CreateIpmiHandler()
 
 void IpmiHandler::open()
 {
+    if (fd >= 0)
+    {
+        return;
+    }
+
     const int device = 0;
     const std::vector<std::string> formats = {"/dev/ipmi", "/dev/ipmi/",
                                               "/dev/ipmidev/"};
@@ -61,6 +68,7 @@ void IpmiHandler::open()
 
     if (fd < 0)
     {
+        // openOnceFlag = std::make_unique<std::once_flag>();
         throw IpmiException("Unable to open any ipmi devices");
     }
 }
@@ -69,10 +77,7 @@ std::vector<std::uint8_t>
     IpmiHandler::sendPacket(std::uint8_t netfn, std::uint8_t cmd,
                             std::vector<std::uint8_t>& data)
 {
-    if (fd < 0)
-    {
-        open();
-    }
+    std::call_once(openOnceFlag, std::bind_front(&IpmiHandler::open, this));
 
     constexpr int ipmiOEMLun = 0;
     constexpr int fifteenMs = 15 * 1000;
@@ -126,7 +131,7 @@ std::vector<std::uint8_t>
             {
                 continue;
             }
-            throw IpmiException("Error occurred.");
+            throw IpmiException("Polling Error occurred.");
         }
         else if (rc == 0)
         {
