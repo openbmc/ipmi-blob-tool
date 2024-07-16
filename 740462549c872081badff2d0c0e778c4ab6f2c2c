@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c510272_2adab923",
+        "filename": "src/ipmiblob/ipmi_handler.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1002101
+      },
+      "writtenOn": "2024-07-16T05:43:56Z",
+      "side": 1,
+      "message": "lock_guard should also protect `if (fd \u003c 0)` otherwise open() will be called twice/multiple times.",
+      "revId": "740462549c872081badff2d0c0e778c4ab6f2c2c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
