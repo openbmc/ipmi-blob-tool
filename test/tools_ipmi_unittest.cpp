@@ -7,8 +7,15 @@
 #include <ipmiblob/ipmi_handler.hpp>
 
 #include <chrono>
+#include <cstdint>
 #include <cstring>
+#include <memory>
+#include <string_view>
 #include <thread>
+#include <vector>
+
+#include <gmock/gmock-more-actions.h>
+#include <gtest/gtest.h>
 
 namespace ipmiblob
 {
