@@ -64,6 +64,54 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4decb2f7_aaa65a93",
+        "filename": "test/tools_ipmi_unittest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000885
+      },
+      "writtenOn": "2024-07-16T22:47:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7c37072_bc8e2ab6",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 29
+      },
+      "revId": "07b65c1e3b68b1edfe1c13cd0fae6225481121aa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fb31af0_3240e66c",
+        "filename": "test/tools_ipmi_unittest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000885
+      },
+      "writtenOn": "2024-07-16T22:47:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c0aa6b8_85c1856a",
+      "range": {
+        "startLine": 98,
+        "startChar": 25,
+        "endLine": 98,
+        "endChar": 26
+      },
+      "revId": "07b65c1e3b68b1edfe1c13cd0fae6225481121aa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a7cc8da7_34dcfa02",
@@ -87,6 +135,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb1cee1b_9102cc61",
+        "filename": "test/tools_ipmi_unittest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000885
+      },
+      "writtenOn": "2024-07-16T22:47:00Z",
+      "side": 1,
+      "message": "I changed it to 10ms and just need some delay to make sure that the second thread starts after the first thread starts.",
+      "parentUuid": "a7cc8da7_34dcfa02",
+      "range": {
+        "startLine": 223,
+        "startChar": 38,
+        "endLine": 223,
+        "endChar": 41
+      },
+      "revId": "07b65c1e3b68b1edfe1c13cd0fae6225481121aa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a1de61dc_b82d0332",
@@ -100,6 +172,30 @@
       "writtenOn": "2024-07-16T22:01:49Z",
       "side": 1,
       "message": "question: Is there merit in testing 1 successful, 1 not successful thread?",
+      "range": {
+        "startLine": 233,
+        "startChar": 0,
+        "endLine": 241,
+        "endChar": 1
+      },
+      "revId": "07b65c1e3b68b1edfe1c13cd0fae6225481121aa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6d9cff9_6f52b077",
+        "filename": "test/tools_ipmi_unittest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1000885
+      },
+      "writtenOn": "2024-07-16T22:47:00Z",
+      "side": 1,
+      "message": "this is actually wrong. I meant to use `ExpectSendPacketError`.\n\nBut yeah, I am updating the test to make sure that the second one will get the proper fd.\n\nUpdated and caught more data race and was fixed.",
+      "parentUuid": "a1de61dc_b82d0332",
       "range": {
         "startLine": 233,
         "startChar": 0,
