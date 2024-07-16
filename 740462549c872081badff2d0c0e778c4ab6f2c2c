@@ -52,6 +52,24 @@
       "parentUuid": "3e15e53e_6627bd25",
       "revId": "740462549c872081badff2d0c0e778c4ab6f2c2c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7159c921_bc6ca919",
+        "filename": "src/ipmiblob/ipmi_handler.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000885
+      },
+      "writtenOn": "2024-07-16T14:48:59Z",
+      "side": 1,
+      "message": "I think you are right. There could be multiple thread that pass the (fd \u003c 0) check and run open() multiple times.\n\nWe needed the lock_guard inside open() because TSAN would still think open() in unsafe otherwise.\n\nI\u0027ll just add back the \n\nif (fd \u003e\u003d 0 )\n\ncheck in open() and it would fix the issue.",
+      "parentUuid": "f6d460db_8bd4963e",
+      "revId": "740462549c872081badff2d0c0e778c4ab6f2c2c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
