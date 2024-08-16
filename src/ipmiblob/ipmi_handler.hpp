@@ -20,7 +20,7 @@ class IpmiHandler : public IpmiInterface
     static std::unique_ptr<IpmiInterface> CreateIpmiHandler();
 
     explicit IpmiHandler(std::unique_ptr<internal::Sys> sys) :
-        sys(std::move(sys)){};
+        sys(std::move(sys)) {};
 
     ~IpmiHandler() = default;
     IpmiHandler(const IpmiHandler&) = delete;

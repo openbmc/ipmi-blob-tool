@@ -42,9 +42,8 @@ std::unique_ptr<BlobInterface>
     return std::make_unique<BlobHandler>(std::move(ipmi));
 }
 
-std::vector<std::uint8_t>
-    BlobHandler::sendIpmiPayload(BlobOEMCommands command,
-                                 const std::vector<std::uint8_t>& payload)
+std::vector<std::uint8_t> BlobHandler::sendIpmiPayload(
+    BlobOEMCommands command, const std::vector<std::uint8_t>& payload)
 {
     std::vector<std::uint8_t> request, reply, bytes;
 
@@ -195,8 +194,8 @@ void BlobHandler::writeGeneric(BlobOEMCommands command, std::uint16_t session,
 {
     std::vector<std::uint8_t> payload;
 
-    payload.reserve(sizeof(std::uint16_t) + sizeof(std::uint32_t) +
-                    bytes.size());
+    payload.reserve(
+        sizeof(std::uint16_t) + sizeof(std::uint32_t) + bytes.size());
 
     auto data = reinterpret_cast<const std::uint8_t*>(&session);
     std::copy(data, data + sizeof(std::uint16_t), std::back_inserter(payload));
@@ -246,8 +245,8 @@ StatResponse BlobHandler::statGeneric(BlobOEMCommands command,
     static constexpr std::size_t blobStateSize = sizeof(meta.blob_state);
     static constexpr std::size_t metaSize = sizeof(meta.size);
     static constexpr std::size_t metaOffset = blobStateSize + metaSize;
-    static constexpr std::size_t minRespSize = metaOffset +
-                                               sizeof(std::uint8_t);
+    static constexpr std::size_t minRespSize =
+        metaOffset + sizeof(std::uint8_t);
     std::vector<std::uint8_t> resp;
 
     try
@@ -377,14 +376,13 @@ bool BlobHandler::deleteBlob(const std::string& id)
     return false;
 }
 
-std::vector<std::uint8_t> BlobHandler::readBytes(std::uint16_t session,
-                                                 std::uint32_t offset,
-                                                 std::uint32_t length)
+std::vector<std::uint8_t> BlobHandler::readBytes(
+    std::uint16_t session, std::uint32_t offset, std::uint32_t length)
 {
     std::vector<std::uint8_t> payload;
 
-    payload.reserve(sizeof(std::uint16_t) + sizeof(std::uint32_t) +
-                    sizeof(std::uint32_t));
+    payload.reserve(
+        sizeof(std::uint16_t) + sizeof(std::uint32_t) + sizeof(std::uint32_t));
 
     auto data = reinterpret_cast<const std::uint8_t*>(&session);
     std::copy(data, data + sizeof(std::uint16_t), std::back_inserter(payload));

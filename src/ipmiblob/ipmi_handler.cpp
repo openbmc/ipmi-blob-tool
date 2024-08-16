@@ -71,9 +71,8 @@ void IpmiHandler::open()
     }
 }
 
-std::vector<std::uint8_t>
-    IpmiHandler::sendPacket(std::uint8_t netfn, std::uint8_t cmd,
-                            std::vector<std::uint8_t>& data)
+std::vector<std::uint8_t> IpmiHandler::sendPacket(
+    std::uint8_t netfn, std::uint8_t cmd, std::vector<std::uint8_t>& data)
 {
     open();
 

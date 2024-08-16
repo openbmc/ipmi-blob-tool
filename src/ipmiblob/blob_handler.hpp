@@ -21,7 +21,7 @@ class BlobHandler : public BlobInterface
         CreateBlobHandler(std::unique_ptr<IpmiInterface> ipmi);
 
     explicit BlobHandler(std::unique_ptr<IpmiInterface> ipmi) :
-        ipmi(std::move(ipmi)){};
+        ipmi(std::move(ipmi)) {};
 
     ~BlobHandler() = default;
     BlobHandler(const BlobHandler&) = delete;
@@ -101,9 +101,8 @@ class BlobHandler : public BlobInterface
      * @return the bytes returned from the ipmi interface.
      * @throws BlobException.
      */
-    std::vector<std::uint8_t>
-        sendIpmiPayload(BlobOEMCommands command,
-                        const std::vector<std::uint8_t>& payload);
+    std::vector<std::uint8_t> sendIpmiPayload(
+        BlobOEMCommands command, const std::vector<std::uint8_t>& payload);
 
     /**
      * Generic blob byte writer.

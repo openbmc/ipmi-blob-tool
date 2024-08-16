@@ -138,9 +138,8 @@ class BlobInterface
      * @return the bytes read
      * @throws BlobException on failure.
      */
-    virtual std::vector<std::uint8_t> readBytes(std::uint16_t session,
-                                                std::uint32_t offset,
-                                                std::uint32_t length) = 0;
+    virtual std::vector<std::uint8_t> readBytes(
+        std::uint16_t session, std::uint32_t offset, std::uint32_t length) = 0;
 };
 
 } // namespace ipmiblob

@@ -11,7 +11,7 @@ class IpmiException : public std::exception
 {
   public:
     IpmiException(const std::string& message, int code) :
-        _message(message), _ccode(code){};
+        _message(message), _ccode(code) {};
 
     static std::string messageFromIpmi(int cc)
     {

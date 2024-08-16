@@ -27,10 +27,11 @@ TEST(Crc16Test, VerifyCrcValue)
         "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
         "AAAAAAAAAAAAAAAA";
 
-    std::vector<CrcTestVector> vectors({{"", 0x1D0F},
-                                        {"A", 0x9479},
-                                        {"123456789", 0xE5CC},
-                                        {longString, 0xE938}});
+    std::vector<CrcTestVector> vectors(
+        {{"", 0x1D0F},
+         {"A", 0x9479},
+         {"123456789", 0xE5CC},
+         {longString, 0xE938}});
 
     for (const CrcTestVector& testVector : vectors)
     {
