@@ -25,8 +25,8 @@ class IpmiHandler : public IpmiInterface
     ~IpmiHandler() = default;
     IpmiHandler(const IpmiHandler&) = delete;
     IpmiHandler& operator=(const IpmiHandler&) = delete;
-    IpmiHandler(IpmiHandler&&) = default;
-    IpmiHandler& operator=(IpmiHandler&&) = default;
+    IpmiHandler(IpmiHandler&&) = delete;
+    IpmiHandler& operator=(IpmiHandler&&) = delete;
 
     /**
      * Attempt to open the device node.
